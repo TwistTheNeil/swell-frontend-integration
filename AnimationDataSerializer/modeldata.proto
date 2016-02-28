@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+package swellanimations;
+
+message Node {
+	required int32 data = 1;
+	optional Node childNode = 2;
+}
+
