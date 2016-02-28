@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from: modeldata.proto
+// Generated from: AnimationDataSerializer/modeldata.proto
 namespace swellanimations
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Node")]

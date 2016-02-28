@@ -46,11 +46,15 @@
     <Compile Include="Modeldata.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="modeldata.proto" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>cd "$(SolutionDir)ProtoGen\"
-.\protogen.exe -i:"$(ProjectDir)modeldata.proto" -o:"$(ProjectDir)$(SolutionName)\Modeldata.cs"
-</PreBuildEvent>
+    <PreBuildEvent>"$(SolutionDir)pre-build.bat"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)post-build.bat" "$(TargetPath)" $(SolutionName)\$(OutDir)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
