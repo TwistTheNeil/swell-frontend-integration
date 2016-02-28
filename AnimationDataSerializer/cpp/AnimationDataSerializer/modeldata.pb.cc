@@ -20,6 +20,9 @@ namespace swellanimations {
 
 namespace {
 
+const ::google::protobuf::Descriptor* Animation_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Animation_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Node_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Node_reflection_ = NULL;
@@ -33,10 +36,33 @@ void protobuf_AssignDesc_AnimationDataSerializer_2fmodeldata_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "AnimationDataSerializer/modeldata.proto");
   GOOGLE_CHECK(file != NULL);
-  Node_descriptor_ = file->message_type(0);
-  static const int Node_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, data_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, childnode_),
+  Animation_descriptor_ = file->message_type(0);
+  static const int Animation_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Animation, frames_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Animation, framespersecond_),
+  };
+  Animation_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Animation_descriptor_,
+      Animation::default_instance_,
+      Animation_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Animation, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Animation, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Animation));
+  Node_descriptor_ = file->message_type(1);
+  static const int Node_offsets_[9] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, positionx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, positiony_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, positionz_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, rotationx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, rotationy_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, rotationz_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, children_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, parent_),
   };
   Node_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -62,12 +88,16 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Animation_descriptor_, &Animation::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Node_descriptor_, &Node::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_AnimationDataSerializer_2fmodeldata_2eproto() {
+  delete Animation::default_instance_;
+  delete Animation_reflection_;
   delete Node::default_instance_;
   delete Node_reflection_;
 }
@@ -80,12 +110,19 @@ void protobuf_AddDesc_AnimationDataSerializer_2fmodeldata_2eproto() {
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\'AnimationDataSerializer/modeldata.prot"
-    "o\022\017swellanimations\">\n\004Node\022\014\n\004data\030\001 \002(\005"
-    "\022(\n\tchildNode\030\002 \001(\0132\025.swellanimations.No"
-    "de", 122);
+    "o\022\017swellanimations\"K\n\tAnimation\022%\n\006frame"
+    "s\030\001 \003(\0132\025.swellanimations.Node\022\027\n\017frames"
+    "PerSecond\030\002 \001(\005\"\326\001\n\004Node\022\014\n\004name\030\001 \001(\t\022\021"
+    "\n\tpositionX\030\002 \001(\002\022\021\n\tpositionY\030\003 \001(\002\022\021\n\t"
+    "positionZ\030\004 \001(\002\022\021\n\trotationX\030\005 \001(\002\022\021\n\tro"
+    "tationY\030\006 \001(\002\022\021\n\trotationZ\030\007 \001(\002\022\'\n\010chil"
+    "dren\030\010 \003(\0132\025.swellanimations.Node\022%\n\006par"
+    "ent\030\t \001(\0132\025.swellanimations.Node", 352);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "AnimationDataSerializer/modeldata.proto", &protobuf_RegisterTypes);
+  Animation::default_instance_ = new Animation();
   Node::default_instance_ = new Node();
+  Animation::default_instance_->InitAsDefaultInstance();
   Node::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_AnimationDataSerializer_2fmodeldata_2eproto);
 }
@@ -100,8 +137,277 @@ struct StaticDescriptorInitializer_AnimationDataSerializer_2fmodeldata_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Node::kDataFieldNumber;
-const int Node::kChildNodeFieldNumber;
+const int Animation::kFramesFieldNumber;
+const int Animation::kFramesPerSecondFieldNumber;
+#endif  // !_MSC_VER
+
+Animation::Animation()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:swellanimations.Animation)
+}
+
+void Animation::InitAsDefaultInstance() {
+}
+
+Animation::Animation(const Animation& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:swellanimations.Animation)
+}
+
+void Animation::SharedCtor() {
+  _cached_size_ = 0;
+  framespersecond_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Animation::~Animation() {
+  // @@protoc_insertion_point(destructor:swellanimations.Animation)
+  SharedDtor();
+}
+
+void Animation::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Animation::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Animation::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Animation_descriptor_;
+}
+
+const Animation& Animation::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_AnimationDataSerializer_2fmodeldata_2eproto();
+  return *default_instance_;
+}
+
+Animation* Animation::default_instance_ = NULL;
+
+Animation* Animation::New() const {
+  return new Animation;
+}
+
+void Animation::Clear() {
+  framespersecond_ = 0;
+  frames_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Animation::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:swellanimations.Animation)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .swellanimations.Node frames = 1;
+      case 1: {
+        if (tag == 10) {
+         parse_frames:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_frames()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(10)) goto parse_frames;
+        if (input->ExpectTag(16)) goto parse_framesPerSecond;
+        break;
+      }
+
+      // optional int32 framesPerSecond = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_framesPerSecond:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &framespersecond_)));
+          set_has_framespersecond();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:swellanimations.Animation)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:swellanimations.Animation)
+  return false;
+#undef DO_
+}
+
+void Animation::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:swellanimations.Animation)
+  // repeated .swellanimations.Node frames = 1;
+  for (int i = 0; i < this->frames_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->frames(i), output);
+  }
+
+  // optional int32 framesPerSecond = 2;
+  if (has_framespersecond()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->framespersecond(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:swellanimations.Animation)
+}
+
+::google::protobuf::uint8* Animation::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:swellanimations.Animation)
+  // repeated .swellanimations.Node frames = 1;
+  for (int i = 0; i < this->frames_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->frames(i), target);
+  }
+
+  // optional int32 framesPerSecond = 2;
+  if (has_framespersecond()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->framespersecond(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:swellanimations.Animation)
+  return target;
+}
+
+int Animation::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional int32 framesPerSecond = 2;
+    if (has_framespersecond()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->framespersecond());
+    }
+
+  }
+  // repeated .swellanimations.Node frames = 1;
+  total_size += 1 * this->frames_size();
+  for (int i = 0; i < this->frames_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->frames(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Animation::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Animation* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Animation*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Animation::MergeFrom(const Animation& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  frames_.MergeFrom(from.frames_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_framespersecond()) {
+      set_framespersecond(from.framespersecond());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Animation::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Animation::CopyFrom(const Animation& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Animation::IsInitialized() const {
+
+  return true;
+}
+
+void Animation::Swap(Animation* other) {
+  if (other != this) {
+    frames_.Swap(&other->frames_);
+    std::swap(framespersecond_, other->framespersecond_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Animation::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Animation_descriptor_;
+  metadata.reflection = Animation_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Node::kNameFieldNumber;
+const int Node::kPositionXFieldNumber;
+const int Node::kPositionYFieldNumber;
+const int Node::kPositionZFieldNumber;
+const int Node::kRotationXFieldNumber;
+const int Node::kRotationYFieldNumber;
+const int Node::kRotationZFieldNumber;
+const int Node::kChildrenFieldNumber;
+const int Node::kParentFieldNumber;
 #endif  // !_MSC_VER
 
 Node::Node()
@@ -111,7 +417,7 @@ Node::Node()
 }
 
 void Node::InitAsDefaultInstance() {
-  childnode_ = const_cast< ::swellanimations::Node*>(&::swellanimations::Node::default_instance());
+  parent_ = const_cast< ::swellanimations::Node*>(&::swellanimations::Node::default_instance());
 }
 
 Node::Node(const Node& from)
@@ -122,9 +428,16 @@ Node::Node(const Node& from)
 }
 
 void Node::SharedCtor() {
+  ::google::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  data_ = 0;
-  childnode_ = NULL;
+  name_ = const_cast< ::std::string*>(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  positionx_ = 0;
+  positiony_ = 0;
+  positionz_ = 0;
+  rotationx_ = 0;
+  rotationy_ = 0;
+  rotationz_ = 0;
+  parent_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -134,8 +447,11 @@ Node::~Node() {
 }
 
 void Node::SharedDtor() {
+  if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete name_;
+  }
   if (this != default_instance_) {
-    delete childnode_;
+    delete parent_;
   }
 }
 
@@ -161,12 +477,32 @@ Node* Node::New() const {
 }
 
 void Node::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
-    data_ = 0;
-    if (has_childnode()) {
-      if (childnode_ != NULL) childnode_->::swellanimations::Node::Clear();
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<Node*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
+  if (_has_bits_[0 / 32] & 127) {
+    ZR_(positionx_, rotationz_);
+    if (has_name()) {
+      if (name_ != &::google::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        name_->clear();
+      }
     }
   }
+  if (has_parent()) {
+    if (parent_ != NULL) parent_->::swellanimations::Node::Clear();
+  }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
+  children_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -181,26 +517,132 @@ bool Node::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 data = 1;
+      // optional string name = 1;
       case 1: {
-        if (tag == 8) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &data_)));
-          set_has_data();
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE,
+            "name");
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_childNode;
+        if (input->ExpectTag(21)) goto parse_positionX;
         break;
       }
 
-      // optional .swellanimations.Node childNode = 2;
+      // optional float positionX = 2;
       case 2: {
-        if (tag == 18) {
-         parse_childNode:
+        if (tag == 21) {
+         parse_positionX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &positionx_)));
+          set_has_positionx();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(29)) goto parse_positionY;
+        break;
+      }
+
+      // optional float positionY = 3;
+      case 3: {
+        if (tag == 29) {
+         parse_positionY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &positiony_)));
+          set_has_positiony();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(37)) goto parse_positionZ;
+        break;
+      }
+
+      // optional float positionZ = 4;
+      case 4: {
+        if (tag == 37) {
+         parse_positionZ:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &positionz_)));
+          set_has_positionz();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(45)) goto parse_rotationX;
+        break;
+      }
+
+      // optional float rotationX = 5;
+      case 5: {
+        if (tag == 45) {
+         parse_rotationX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &rotationx_)));
+          set_has_rotationx();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(53)) goto parse_rotationY;
+        break;
+      }
+
+      // optional float rotationY = 6;
+      case 6: {
+        if (tag == 53) {
+         parse_rotationY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &rotationy_)));
+          set_has_rotationy();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(61)) goto parse_rotationZ;
+        break;
+      }
+
+      // optional float rotationZ = 7;
+      case 7: {
+        if (tag == 61) {
+         parse_rotationZ:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, &rotationz_)));
+          set_has_rotationz();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_children;
+        break;
+      }
+
+      // repeated .swellanimations.Node children = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_children:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_childnode()));
+                input, add_children()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(66)) goto parse_children;
+        if (input->ExpectTag(74)) goto parse_parent;
+        break;
+      }
+
+      // optional .swellanimations.Node parent = 9;
+      case 9: {
+        if (tag == 74) {
+         parse_parent:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_parent()));
         } else {
           goto handle_unusual;
         }
@@ -233,15 +675,56 @@ failure:
 void Node::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:swellanimations.Node)
-  // required int32 data = 1;
-  if (has_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->data(), output);
+  // optional string name = 1;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->name(), output);
   }
 
-  // optional .swellanimations.Node childNode = 2;
-  if (has_childnode()) {
+  // optional float positionX = 2;
+  if (has_positionx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->positionx(), output);
+  }
+
+  // optional float positionY = 3;
+  if (has_positiony()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(3, this->positiony(), output);
+  }
+
+  // optional float positionZ = 4;
+  if (has_positionz()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(4, this->positionz(), output);
+  }
+
+  // optional float rotationX = 5;
+  if (has_rotationx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(5, this->rotationx(), output);
+  }
+
+  // optional float rotationY = 6;
+  if (has_rotationy()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(6, this->rotationy(), output);
+  }
+
+  // optional float rotationZ = 7;
+  if (has_rotationz()) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(7, this->rotationz(), output);
+  }
+
+  // repeated .swellanimations.Node children = 8;
+  for (int i = 0; i < this->children_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->childnode(), output);
+      8, this->children(i), output);
+  }
+
+  // optional .swellanimations.Node parent = 9;
+  if (has_parent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->parent(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -254,16 +737,59 @@ void Node::SerializeWithCachedSizes(
 ::google::protobuf::uint8* Node::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:swellanimations.Node)
-  // required int32 data = 1;
-  if (has_data()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->data(), target);
+  // optional string name = 1;
+  if (has_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE,
+      "name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->name(), target);
   }
 
-  // optional .swellanimations.Node childNode = 2;
-  if (has_childnode()) {
+  // optional float positionX = 2;
+  if (has_positionx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->positionx(), target);
+  }
+
+  // optional float positionY = 3;
+  if (has_positiony()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(3, this->positiony(), target);
+  }
+
+  // optional float positionZ = 4;
+  if (has_positionz()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(4, this->positionz(), target);
+  }
+
+  // optional float rotationX = 5;
+  if (has_rotationx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(5, this->rotationx(), target);
+  }
+
+  // optional float rotationY = 6;
+  if (has_rotationy()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(6, this->rotationy(), target);
+  }
+
+  // optional float rotationZ = 7;
+  if (has_rotationz()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(7, this->rotationz(), target);
+  }
+
+  // repeated .swellanimations.Node children = 8;
+  for (int i = 0; i < this->children_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->childnode(), target);
+        8, this->children(i), target);
+  }
+
+  // optional .swellanimations.Node parent = 9;
+  if (has_parent()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->parent(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -278,21 +804,61 @@ int Node::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int32 data = 1;
-    if (has_data()) {
+    // optional string name = 1;
+    if (has_name()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->data());
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->name());
     }
 
-    // optional .swellanimations.Node childNode = 2;
-    if (has_childnode()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->childnode());
+    // optional float positionX = 2;
+    if (has_positionx()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float positionY = 3;
+    if (has_positiony()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float positionZ = 4;
+    if (has_positionz()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float rotationX = 5;
+    if (has_rotationx()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float rotationY = 6;
+    if (has_rotationy()) {
+      total_size += 1 + 4;
+    }
+
+    // optional float rotationZ = 7;
+    if (has_rotationz()) {
+      total_size += 1 + 4;
     }
 
   }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional .swellanimations.Node parent = 9;
+    if (has_parent()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->parent());
+    }
+
+  }
+  // repeated .swellanimations.Node children = 8;
+  total_size += 1 * this->children_size();
+  for (int i = 0; i < this->children_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->children(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -318,12 +884,33 @@ void Node::MergeFrom(const ::google::protobuf::Message& from) {
 
 void Node::MergeFrom(const Node& from) {
   GOOGLE_CHECK_NE(&from, this);
+  children_.MergeFrom(from.children_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_data()) {
-      set_data(from.data());
+    if (from.has_name()) {
+      set_name(from.name());
     }
-    if (from.has_childnode()) {
-      mutable_childnode()->::swellanimations::Node::MergeFrom(from.childnode());
+    if (from.has_positionx()) {
+      set_positionx(from.positionx());
+    }
+    if (from.has_positiony()) {
+      set_positiony(from.positiony());
+    }
+    if (from.has_positionz()) {
+      set_positionz(from.positionz());
+    }
+    if (from.has_rotationx()) {
+      set_rotationx(from.rotationx());
+    }
+    if (from.has_rotationy()) {
+      set_rotationy(from.rotationy());
+    }
+    if (from.has_rotationz()) {
+      set_rotationz(from.rotationz());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_parent()) {
+      mutable_parent()->::swellanimations::Node::MergeFrom(from.parent());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -342,18 +929,21 @@ void Node::CopyFrom(const Node& from) {
 }
 
 bool Node::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (has_childnode()) {
-    if (!this->childnode().IsInitialized()) return false;
-  }
   return true;
 }
 
 void Node::Swap(Node* other) {
   if (other != this) {
-    std::swap(data_, other->data_);
-    std::swap(childnode_, other->childnode_);
+    std::swap(name_, other->name_);
+    std::swap(positionx_, other->positionx_);
+    std::swap(positiony_, other->positiony_);
+    std::swap(positionz_, other->positionz_);
+    std::swap(rotationx_, other->rotationx_);
+    std::swap(rotationy_, other->rotationy_);
+    std::swap(rotationz_, other->rotationz_);
+    children_.Swap(&other->children_);
+    std::swap(parent_, other->parent_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
