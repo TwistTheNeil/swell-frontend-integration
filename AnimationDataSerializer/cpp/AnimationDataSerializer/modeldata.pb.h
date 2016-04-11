@@ -258,6 +258,18 @@ class Node : public ::google::protobuf::Message {
   inline ::swellanimations::Node* release_parent();
   inline void set_allocated_parent(::swellanimations::Node* parent);
 
+  // repeated .swellanimations.Node spline = 10;
+  inline int spline_size() const;
+  inline void clear_spline();
+  static const int kSplineFieldNumber = 10;
+  inline const ::swellanimations::Node& spline(int index) const;
+  inline ::swellanimations::Node* mutable_spline(int index);
+  inline ::swellanimations::Node* add_spline();
+  inline const ::google::protobuf::RepeatedPtrField< ::swellanimations::Node >&
+      spline() const;
+  inline ::google::protobuf::RepeatedPtrField< ::swellanimations::Node >*
+      mutable_spline();
+
   // @@protoc_insertion_point(class_scope:swellanimations.Node)
  private:
   inline void set_has_name();
@@ -290,6 +302,7 @@ class Node : public ::google::protobuf::Message {
   float rotationz_;
   ::google::protobuf::RepeatedPtrField< ::swellanimations::Node > children_;
   ::swellanimations::Node* parent_;
+  ::google::protobuf::RepeatedPtrField< ::swellanimations::Node > spline_;
   friend void  protobuf_AddDesc_AnimationDataSerializer_2fmodeldata_2eproto();
   friend void protobuf_AssignDesc_AnimationDataSerializer_2fmodeldata_2eproto();
   friend void protobuf_ShutdownFile_AnimationDataSerializer_2fmodeldata_2eproto();
@@ -651,6 +664,36 @@ inline void Node::set_allocated_parent(::swellanimations::Node* parent) {
     clear_has_parent();
   }
   // @@protoc_insertion_point(field_set_allocated:swellanimations.Node.parent)
+}
+
+// repeated .swellanimations.Node spline = 10;
+inline int Node::spline_size() const {
+  return spline_.size();
+}
+inline void Node::clear_spline() {
+  spline_.Clear();
+}
+inline const ::swellanimations::Node& Node::spline(int index) const {
+  // @@protoc_insertion_point(field_get:swellanimations.Node.spline)
+  return spline_.Get(index);
+}
+inline ::swellanimations::Node* Node::mutable_spline(int index) {
+  // @@protoc_insertion_point(field_mutable:swellanimations.Node.spline)
+  return spline_.Mutable(index);
+}
+inline ::swellanimations::Node* Node::add_spline() {
+  // @@protoc_insertion_point(field_add:swellanimations.Node.spline)
+  return spline_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::swellanimations::Node >&
+Node::spline() const {
+  // @@protoc_insertion_point(field_list:swellanimations.Node.spline)
+  return spline_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::swellanimations::Node >*
+Node::mutable_spline() {
+  // @@protoc_insertion_point(field_mutable_list:swellanimations.Node.spline)
+  return &spline_;
 }
 
 

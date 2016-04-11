@@ -17,4 +17,5 @@ message Node {
 	optional float rotationZ = 7;
 	repeated Node children = 8;
 	optional Node parent = 9;
+	repeated Node spline = 10;
 }

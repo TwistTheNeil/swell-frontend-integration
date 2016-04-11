@@ -53,7 +53,7 @@ void protobuf_AssignDesc_AnimationDataSerializer_2fmodeldata_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Animation));
   Node_descriptor_ = file->message_type(1);
-  static const int Node_offsets_[9] = {
+  static const int Node_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, positionx_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, positiony_),
@@ -63,6 +63,7 @@ void protobuf_AssignDesc_AnimationDataSerializer_2fmodeldata_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, rotationz_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, children_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, parent_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Node, spline_),
   };
   Node_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -112,12 +113,13 @@ void protobuf_AddDesc_AnimationDataSerializer_2fmodeldata_2eproto() {
     "\n\'AnimationDataSerializer/modeldata.prot"
     "o\022\017swellanimations\"K\n\tAnimation\022%\n\006frame"
     "s\030\001 \003(\0132\025.swellanimations.Node\022\027\n\017frames"
-    "PerSecond\030\002 \001(\005\"\326\001\n\004Node\022\014\n\004name\030\001 \001(\t\022\021"
+    "PerSecond\030\002 \001(\005\"\375\001\n\004Node\022\014\n\004name\030\001 \001(\t\022\021"
     "\n\tpositionX\030\002 \001(\002\022\021\n\tpositionY\030\003 \001(\002\022\021\n\t"
     "positionZ\030\004 \001(\002\022\021\n\trotationX\030\005 \001(\002\022\021\n\tro"
     "tationY\030\006 \001(\002\022\021\n\trotationZ\030\007 \001(\002\022\'\n\010chil"
     "dren\030\010 \003(\0132\025.swellanimations.Node\022%\n\006par"
-    "ent\030\t \001(\0132\025.swellanimations.Node", 352);
+    "ent\030\t \001(\0132\025.swellanimations.Node\022%\n\006spli"
+    "ne\030\n \003(\0132\025.swellanimations.Node", 391);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "AnimationDataSerializer/modeldata.proto", &protobuf_RegisterTypes);
   Animation::default_instance_ = new Animation();
@@ -408,6 +410,7 @@ const int Node::kRotationYFieldNumber;
 const int Node::kRotationZFieldNumber;
 const int Node::kChildrenFieldNumber;
 const int Node::kParentFieldNumber;
+const int Node::kSplineFieldNumber;
 #endif  // !_MSC_VER
 
 Node::Node()
@@ -503,6 +506,7 @@ void Node::Clear() {
 #undef ZR_
 
   children_.Clear();
+  spline_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -646,6 +650,20 @@ bool Node::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(82)) goto parse_spline;
+        break;
+      }
+
+      // repeated .swellanimations.Node spline = 10;
+      case 10: {
+        if (tag == 82) {
+         parse_spline:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_spline()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(82)) goto parse_spline;
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -727,6 +745,12 @@ void Node::SerializeWithCachedSizes(
       9, this->parent(), output);
   }
 
+  // repeated .swellanimations.Node spline = 10;
+  for (int i = 0; i < this->spline_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, this->spline(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -790,6 +814,13 @@ void Node::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         9, this->parent(), target);
+  }
+
+  // repeated .swellanimations.Node spline = 10;
+  for (int i = 0; i < this->spline_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        10, this->spline(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -859,6 +890,14 @@ int Node::ByteSize() const {
         this->children(i));
   }
 
+  // repeated .swellanimations.Node spline = 10;
+  total_size += 1 * this->spline_size();
+  for (int i = 0; i < this->spline_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->spline(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -885,6 +924,7 @@ void Node::MergeFrom(const ::google::protobuf::Message& from) {
 void Node::MergeFrom(const Node& from) {
   GOOGLE_CHECK_NE(&from, this);
   children_.MergeFrom(from.children_);
+  spline_.MergeFrom(from.spline_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_name()) {
       set_name(from.name());
@@ -944,6 +984,7 @@ void Node::Swap(Node* other) {
     std::swap(rotationz_, other->rotationz_);
     children_.Swap(&other->children_);
     std::swap(parent_, other->parent_);
+    spline_.Swap(&other->spline_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

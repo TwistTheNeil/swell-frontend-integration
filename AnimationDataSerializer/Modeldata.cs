@@ -111,6 +111,13 @@ namespace swellanimations
       get { return _parent; }
       set { _parent = value; }
     }
+    private readonly global::System.Collections.Generic.List<swellanimations.Node> _spline = new global::System.Collections.Generic.List<swellanimations.Node>();
+    [global::ProtoBuf.ProtoMember(10, Name=@"spline", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<swellanimations.Node> spline
+    {
+      get { return _spline; }
+    }
+  
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
