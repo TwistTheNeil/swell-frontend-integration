@@ -22,13 +22,76 @@ namespace swellanimations
       get { return _frames; }
     }
   
-    private int _framesPerSecond = default(int);
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"framesPerSecond", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
-    public int framesPerSecond
+    private readonly global::System.Collections.Generic.List<swellanimations.Vector> _spline = new global::System.Collections.Generic.List<swellanimations.Vector>();
+    [global::ProtoBuf.ProtoMember(2, Name=@"spline", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<swellanimations.Vector> spline
     {
-      get { return _framesPerSecond; }
-      set { _framesPerSecond = value; }
+      get { return _spline; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"ModelData")]
+  public partial class ModelData : global::ProtoBuf.IExtensible
+  {
+    public ModelData() {}
+    
+    private swellanimations.Node _model = null;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"model", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public swellanimations.Node model
+    {
+      get { return _model; }
+      set { _model = value; }
+    }
+    private swellanimations.Vector _upVector = null;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"upVector", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public swellanimations.Vector upVector
+    {
+      get { return _upVector; }
+      set { _upVector = value; }
+    }
+    private readonly global::System.Collections.Generic.List<swellanimations.Vector> _controlPoints = new global::System.Collections.Generic.List<swellanimations.Vector>();
+    [global::ProtoBuf.ProtoMember(3, Name=@"controlPoints", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<swellanimations.Vector> controlPoints
+    {
+      get { return _controlPoints; }
+    }
+  
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Vector")]
+  public partial class Vector : global::ProtoBuf.IExtensible
+  {
+    public Vector() {}
+    
+    private float _x;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"x", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float x
+    {
+      get { return _x; }
+      set { _x = value; }
+    }
+    private float _y;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"y", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float y
+    {
+      get { return _y; }
+      set { _y = value; }
+    }
+    private float _z;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"z", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
+    public float z
+    {
+      get { return _z; }
+      set { _z = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
@@ -48,76 +111,37 @@ namespace swellanimations
       get { return _name; }
       set { _name = value; }
     }
-    private float _positionX = default(float);
-    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"positionX", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-    [global::System.ComponentModel.DefaultValue(default(float))]
-    public float positionX
+    private swellanimations.Vector _position = null;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = false, Name=@"position", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public swellanimations.Vector position
     {
-      get { return _positionX; }
-      set { _positionX = value; }
+      get { return _position; }
+      set { _position = value; }
     }
-    private float _positionY = default(float);
-    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"positionY", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-    [global::System.ComponentModel.DefaultValue(default(float))]
-    public float positionY
+    private swellanimations.Vector _eularAngles = null;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = false, Name=@"eularAngles", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public swellanimations.Vector eularAngles
     {
-      get { return _positionY; }
-      set { _positionY = value; }
-    }
-    private float _positionZ = default(float);
-    [global::ProtoBuf.ProtoMember(4, IsRequired = false, Name=@"positionZ", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-    [global::System.ComponentModel.DefaultValue(default(float))]
-    public float positionZ
-    {
-      get { return _positionZ; }
-      set { _positionZ = value; }
-    }
-    private float _rotationX = default(float);
-    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"rotationX", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-    [global::System.ComponentModel.DefaultValue(default(float))]
-    public float rotationX
-    {
-      get { return _rotationX; }
-      set { _rotationX = value; }
-    }
-    private float _rotationY = default(float);
-    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"rotationY", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-    [global::System.ComponentModel.DefaultValue(default(float))]
-    public float rotationY
-    {
-      get { return _rotationY; }
-      set { _rotationY = value; }
-    }
-    private float _rotationZ = default(float);
-    [global::ProtoBuf.ProtoMember(7, IsRequired = false, Name=@"rotationZ", DataFormat = global::ProtoBuf.DataFormat.FixedSize)]
-    [global::System.ComponentModel.DefaultValue(default(float))]
-    public float rotationZ
-    {
-      get { return _rotationZ; }
-      set { _rotationZ = value; }
+      get { return _eularAngles; }
+      set { _eularAngles = value; }
     }
     private readonly global::System.Collections.Generic.List<swellanimations.Node> _children = new global::System.Collections.Generic.List<swellanimations.Node>();
-    [global::ProtoBuf.ProtoMember(8, Name=@"children", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(4, Name=@"children", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public global::System.Collections.Generic.List<swellanimations.Node> children
     {
       get { return _children; }
     }
   
     private swellanimations.Node _parent = null;
-    [global::ProtoBuf.ProtoMember(9, IsRequired = false, Name=@"parent", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"parent", DataFormat = global::ProtoBuf.DataFormat.Default)]
     [global::System.ComponentModel.DefaultValue(null)]
     public swellanimations.Node parent
     {
       get { return _parent; }
       set { _parent = value; }
     }
-    private readonly global::System.Collections.Generic.List<swellanimations.Node> _spline = new global::System.Collections.Generic.List<swellanimations.Node>();
-    [global::ProtoBuf.ProtoMember(10, Name=@"spline", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<swellanimations.Node> spline
-    {
-      get { return _spline; }
-    }
-  
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
