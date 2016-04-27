@@ -11,6 +11,7 @@ message ModelData {
 	optional Node model = 1;
 	optional Vector upVector = 2;
 	repeated Vector controlPoints = 3;
+	repeated Vector rotationpoints = 4;
 }
 
 message Vector {
@@ -25,4 +26,10 @@ message Node {
 	optional Vector eularAngles = 3;
 	repeated Node children = 4;
 	optional Node parent = 5;
+}
+
+message RotationPoints {
+	optional Vector Rotation = 1;
+	required int32  numFrames = 2;
+	required int32  startFrame = 3;
 }
