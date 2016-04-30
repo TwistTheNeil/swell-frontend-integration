@@ -12,6 +12,7 @@ message ModelData {
 	optional Vector upVector = 2;
 	repeated Vector controlPoints = 3;
 	repeated Vector rotationpoints = 4;
+	optional int32 numberOfFrames = 5;
 }
 
 message Vector {

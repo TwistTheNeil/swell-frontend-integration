@@ -62,6 +62,21 @@ namespace swellanimations
       get { return _controlPoints; }
     }
   
+    private readonly global::System.Collections.Generic.List<swellanimations.Vector> _rotationpoints = new global::System.Collections.Generic.List<swellanimations.Vector>();
+    [global::ProtoBuf.ProtoMember(4, Name=@"rotationpoints", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<swellanimations.Vector> rotationpoints
+    {
+      get { return _rotationpoints; }
+    }
+  
+    private int _numberOfFrames = default(int);
+    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"numberOfFrames", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    [global::System.ComponentModel.DefaultValue(default(int))]
+    public int numberOfFrames
+    {
+      get { return _numberOfFrames; }
+      set { _numberOfFrames = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -141,6 +156,38 @@ namespace swellanimations
     {
       get { return _parent; }
       set { _parent = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"RotationPoints")]
+  public partial class RotationPoints : global::ProtoBuf.IExtensible
+  {
+    public RotationPoints() {}
+    
+    private swellanimations.Vector _Rotation = null;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"Rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public swellanimations.Vector Rotation
+    {
+      get { return _Rotation; }
+      set { _Rotation = value; }
+    }
+    private int _numFrames;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"numFrames", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int numFrames
+    {
+      get { return _numFrames; }
+      set { _numFrames = value; }
+    }
+    private int _startFrame;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"startFrame", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int startFrame
+    {
+      get { return _startFrame; }
+      set { _startFrame = value; }
     }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
