@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generated from: AnimationDataSerializer/modeldata.proto
+// Generated from: modeldata.proto
 namespace swellanimations
 {
   [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"Animation")]
@@ -62,16 +62,15 @@ namespace swellanimations
       get { return _controlPoints; }
     }
   
-    private readonly global::System.Collections.Generic.List<swellanimations.Vector> _rotationpoints = new global::System.Collections.Generic.List<swellanimations.Vector>();
+    private readonly global::System.Collections.Generic.List<swellanimations.RotationPoint> _rotationpoints = new global::System.Collections.Generic.List<swellanimations.RotationPoint>();
     [global::ProtoBuf.ProtoMember(4, Name=@"rotationpoints", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    public global::System.Collections.Generic.List<swellanimations.Vector> rotationpoints
+    public global::System.Collections.Generic.List<swellanimations.RotationPoint> rotationpoints
     {
       get { return _rotationpoints; }
     }
   
-    private int _numberOfFrames = default(int);
-    [global::ProtoBuf.ProtoMember(5, IsRequired = false, Name=@"numberOfFrames", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
-    [global::System.ComponentModel.DefaultValue(default(int))]
+    private int _numberOfFrames;
+    [global::ProtoBuf.ProtoMember(5, IsRequired = true, Name=@"numberOfFrames", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public int numberOfFrames
     {
       get { return _numberOfFrames; }
@@ -162,14 +161,13 @@ namespace swellanimations
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
   }
   
-  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"RotationPoints")]
-  public partial class RotationPoints : global::ProtoBuf.IExtensible
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"RotationPoint")]
+  public partial class RotationPoint : global::ProtoBuf.IExtensible
   {
-    public RotationPoints() {}
+    public RotationPoint() {}
     
-    private swellanimations.Vector _Rotation = null;
-    [global::ProtoBuf.ProtoMember(1, IsRequired = false, Name=@"Rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
-    [global::System.ComponentModel.DefaultValue(null)]
+    private swellanimations.Vector _Rotation;
+    [global::ProtoBuf.ProtoMember(1, IsRequired = true, Name=@"Rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
     public swellanimations.Vector Rotation
     {
       get { return _Rotation; }
