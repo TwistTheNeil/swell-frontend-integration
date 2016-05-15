@@ -13,6 +13,7 @@ message ModelData {
 	repeated Vector controlPoints = 3;
 	repeated RotationPoint rotationpoints = 4;
 	required int32 numberOfFrames = 5;
+	repeated AnimationLayer animationLayers = 6;
 }
 
 message Vector {
@@ -33,4 +34,10 @@ message RotationPoint {
 	required Vector Rotation = 1;
 	required int32  numFrames = 2;
 	required int32  startFrame = 3;
+}
+
+message AnimationLayer {
+	repeated Vector layerPoints = 1;
+	required int32 numFrames = 2;
+	required int32 startFrame = 3;
 }

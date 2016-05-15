@@ -76,6 +76,13 @@ namespace swellanimations
       get { return _numberOfFrames; }
       set { _numberOfFrames = value; }
     }
+    private readonly global::System.Collections.Generic.List<swellanimations.AnimationLayer> _animationLayers = new global::System.Collections.Generic.List<swellanimations.AnimationLayer>();
+    [global::ProtoBuf.ProtoMember(6, Name=@"animationLayers", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<swellanimations.AnimationLayer> animationLayers
+    {
+      get { return _animationLayers; }
+    }
+  
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
@@ -173,6 +180,37 @@ namespace swellanimations
       get { return _Rotation; }
       set { _Rotation = value; }
     }
+    private int _numFrames;
+    [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"numFrames", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int numFrames
+    {
+      get { return _numFrames; }
+      set { _numFrames = value; }
+    }
+    private int _startFrame;
+    [global::ProtoBuf.ProtoMember(3, IsRequired = true, Name=@"startFrame", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
+    public int startFrame
+    {
+      get { return _startFrame; }
+      set { _startFrame = value; }
+    }
+    private global::ProtoBuf.IExtension extensionObject;
+    global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
+      { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }
+  }
+  
+  [global::System.Serializable, global::ProtoBuf.ProtoContract(Name=@"AnimationLayer")]
+  public partial class AnimationLayer : global::ProtoBuf.IExtensible
+  {
+    public AnimationLayer() {}
+    
+    private readonly global::System.Collections.Generic.List<swellanimations.Vector> _layerPoints = new global::System.Collections.Generic.List<swellanimations.Vector>();
+    [global::ProtoBuf.ProtoMember(1, Name=@"layerPoints", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    public global::System.Collections.Generic.List<swellanimations.Vector> layerPoints
+    {
+      get { return _layerPoints; }
+    }
+  
     private int _numFrames;
     [global::ProtoBuf.ProtoMember(2, IsRequired = true, Name=@"numFrames", DataFormat = global::ProtoBuf.DataFormat.TwosComplement)]
     public int numFrames
