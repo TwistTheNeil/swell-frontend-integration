@@ -17,9 +17,9 @@ message ModelData {
 }
 
 message Vector {
-	required float x = 1;
-	required float y = 2;
-	required float z = 3;
+	required double x = 1;
+	required double y = 2;
+	required double z = 3;
 }
 
 message Node {
