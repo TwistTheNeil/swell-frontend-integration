@@ -163,6 +163,14 @@ namespace swellanimations
       get { return _parent; }
       set { _parent = value; }
     }
+    private swellanimations.Vector _rotation = null;
+    [global::ProtoBuf.ProtoMember(6, IsRequired = false, Name=@"rotation", DataFormat = global::ProtoBuf.DataFormat.Default)]
+    [global::System.ComponentModel.DefaultValue(null)]
+    public swellanimations.Vector rotation
+    {
+      get { return _rotation; }
+      set { _rotation = value; }
+    }
     private global::ProtoBuf.IExtension extensionObject;
     global::ProtoBuf.IExtension global::ProtoBuf.IExtensible.GetExtensionObject(bool createIfMissing)
       { return global::ProtoBuf.Extensible.GetExtensionObject(ref extensionObject, createIfMissing); }

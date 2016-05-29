@@ -28,6 +28,7 @@ message Node {
 	optional Vector eularAngles = 3;
 	repeated Node children = 4;
 	optional Node parent = 5;
+	optional Vector rotation = 6;
 }
 
 message RotationPoint {
